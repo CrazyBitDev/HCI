@@ -17,6 +17,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float movDist;
 
     public event EventHandler OnInteractPerformed;
+    public event EventHandler OnPausePerformed;
 
     public GameObject holdPoint;
     [HideInInspector] public GameObject heldCell;
@@ -27,7 +28,13 @@ public class PlayerActions : MonoBehaviour
         playerActionSystem = new PlayerInput();
         playerActionSystem.PlayerActions.Enable();
         playerActionSystem.PlayerActions.Interact.performed += Interact_performed;
+        playerActionSystem.PlayerActions.Pause.performed += Pause_performed;
 
+    }
+
+    private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnPausePerformed?.Invoke(this, EventArgs.Empty);
     }
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -68,7 +75,7 @@ public class PlayerActions : MonoBehaviour
         movVec = cameraRotFlat * movVec;
 
 
-        float movDist = movSpeed * Time.deltaTime;
+        //float movDist = movSpeed * Time.deltaTime;
 
         bool canMove = ShootCapsule(movVec); //Check for collisions along the movement direction
 
@@ -123,5 +130,7 @@ public class PlayerActions : MonoBehaviour
     private void OnDisable()
     {
         playerActionSystem.PlayerActions.Interact.performed -= Interact_performed;
+        playerActionSystem.PlayerActions.Pause.performed -= Pause_performed;
+
     }
 }

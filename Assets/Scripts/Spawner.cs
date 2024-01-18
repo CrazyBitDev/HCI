@@ -57,7 +57,7 @@ public class Spawner : MonoBehaviour
                 spawnTimer = 1; //The time we want to give the spawner to perform the spawning
                 if (spawnedCell == null)
                 {
-                    spawnedCell = Instantiate(cellPrefabs[UnityEngine.Random.Range(0, 4)]);
+                    spawnedCell = Instantiate(cellPrefabs[UnityEngine.Random.Range(0, cellPrefabs.Length)]);
                     //We position energy cell on the spawn point
                     spawnedCell.transform.parent = spawnPoint.transform;
                     spawnedCell.transform.localPosition = Vector3.zero;

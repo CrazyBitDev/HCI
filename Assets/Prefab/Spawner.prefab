@@ -192,4 +192,8 @@ MonoBehaviour:
   - {fileID: 7707520390554170837, guid: 3e92630f78977b94eb78b7564f8b97b5, type: 3}
   - {fileID: 7707520390554170837, guid: 20f0acfae83de5c4ebf9fe974c7ad143, type: 3}
   - {fileID: 7707520390554170837, guid: d22e8711204726e478b0d0c9a9b7b4fe, type: 3}
+  - {fileID: 7707520390554170837, guid: 83ee3f7b39bb36b4d94dcfafeb5895ee, type: 3}
   spawnPoint: {fileID: 3532813843587192034}
+  spawnedCell: {fileID: 0}
+  isSpawned: 0
+  pickupDistance: 1.5
